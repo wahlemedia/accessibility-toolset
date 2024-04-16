@@ -7,6 +7,11 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/file',
+        name: 'File',
+        component: () => import('./views/FileView.vue')
     }
 ];
 
