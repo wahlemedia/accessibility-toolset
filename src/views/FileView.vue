@@ -28,7 +28,10 @@ const filter = ref<Filter>({
 });
 
 const changeFileName = (name: string, filter: Filter) => {
-    const [originalName, ending] = name.split('.')
+    const [
+        originalName,
+        // ending
+    ] = name.split('.')
     // ${filter.intensity?.value}-${filter.intensity?.max}
     return `${originalName}-${filter.name}.jpeg`;
 }
@@ -48,7 +51,7 @@ watch(filter, () => {
     <div class="">
         <header class="flex justify-between mb-6 items-center">
             <h1 class="text-2xl font-semibold text-gray-900 ">Color Simulation</h1>
-            <file-download-button :title="'Download Image'" :fileName="downloadFileName" v-if="fileRef"  />
+            <file-download-button :title="'Download Image'" :fileName="downloadFileName" v-if="fileRef" />
         </header>
 
         <ImageUpload title="Upload a file" v-if="!fileRef" />

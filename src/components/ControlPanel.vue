@@ -3,7 +3,9 @@ import { ref, watchEffect } from 'vue';
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import useColorVisionDeficiency, { ColorVisionDeficiencyType, type Filter } from '../composable/useColorVisionDeficiency';
 
-const { getFilter, intensityRange } = useColorVisionDeficiency();
+const { getFilter, 
+    // intensityRange 
+} = useColorVisionDeficiency();
 
 interface CvdType {
     name: string;
