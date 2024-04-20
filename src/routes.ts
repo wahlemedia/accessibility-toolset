@@ -1,18 +1,13 @@
 import {RouteRecordRaw} from 'vue-router';
 
-import Home from './views/HomeView.vue';
+import FileView from './views/FileView.vue';
 
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        name: 'file',
+        component: FileView
     },
-    {
-        path: '/file',
-        name: 'File',
-        component: () => import('./views/FileView.vue')
-    }
 ];
 
 export default routes;

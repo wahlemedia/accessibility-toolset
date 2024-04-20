@@ -19,7 +19,7 @@ const fileId = generate('file');
 
 <template>
     <label :for="photoId" class="block text-sm font-medium leading-6 text-gray-900">{{ title }}</label>
-    <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+    <div class="flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
         <div class="text-center">
             <PhotoIcon class="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
             <div class="mt-4 flex text-sm leading-6 text-gray-600">

@@ -5,10 +5,6 @@ interface Props {
 }
 
 defineProps<Props>();
-
-// const randomId = generate('filter');
-
-
 </script>
 
 <template>

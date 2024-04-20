@@ -2,6 +2,7 @@ import { ref } from 'vue';
 
 const fileRef = ref<string | null>(null);
 const imageRef = ref<HTMLImageElement | null>(null);
+const fileName = ref<string>("image.jpg");
 
 const useFile = () => {
 
@@ -17,6 +18,7 @@ const useFile = () => {
                 const result = event.target?.result as string;
 
                 fileRef.value = result;
+                fileName.value = file.name;
 
                 console.log('File:', file);
                 getImage(result);
@@ -51,6 +53,7 @@ const useFile = () => {
     }
 
     return {
+        fileName,
         imageRef,
         fileRef,
         fileUpload,

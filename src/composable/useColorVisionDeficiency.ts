@@ -9,22 +9,26 @@ export const enum ColorVisionDeficiencyType {
     ACHROMATOPSIA = 'achromatopsia',
 }
 
-export interface IntensityRange{
+export interface IntensityRange {
     min: number;
+    max: number;
+}
+
+export interface Intensity {
+    value: number;
     max: number;
 }
 
 export interface Filter {
     name: string;
     matrix: string;
-    description: string;
-
+    label?: string;
+    intensity?: Intensity;
 }
 
 const useColorVisionDeficiency = () => {
 
     const intensityRange = ref<IntensityRange>({ min: 1, max: 10 });
-
 
     const getFilter = (type: ColorVisionDeficiencyType = ColorVisionDeficiencyType.NONE, intensity: number = 1): Filter => {
         const map = colorVisionDeficiencyMap[type];
@@ -44,8 +48,12 @@ const useColorVisionDeficiency = () => {
 
         return {
             name: type.toString(),
-            matrix: map[key],
-            description: `Color vision deficiency: ${type} (${key}/${keyCount})`,
+            // matrix: map[key],
+            matrix: map[keyCount],
+            intensity: {
+                value: key,
+                max: keyCount,
+            }
         };
     }
 

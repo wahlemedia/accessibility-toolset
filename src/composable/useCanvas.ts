@@ -1,9 +1,10 @@
 import { ref, watch } from 'vue';
 
-const useCanvas = () => {
-    const canvasRef = ref<HTMLCanvasElement | null>(null);
-    const ctx = ref<CanvasRenderingContext2D | null>(null);
+const canvasRef = ref<HTMLCanvasElement | null>(null);
+const ctx = ref<CanvasRenderingContext2D | null>(null);
 
+
+const useCanvas = () => {
 
     const setCanvas = (canvas: HTMLCanvasElement) => {
         canvasRef.value = canvas;
@@ -22,7 +23,7 @@ const useCanvas = () => {
             ctx.value.drawImage(canvasRef.value as HTMLCanvasElement, 0, 0);
         }
     }
-   
+
     const setImageFromDataUrl = (dataUrl: string) => {
         const image = new Image();
         image.src = dataUrl;
@@ -31,6 +32,13 @@ const useCanvas = () => {
                 ctx.value.drawImage(image, 0, 0);
             }
         }
+    }
+
+    const getImageData = (quality = 80): string => {
+        if (!canvasRef.value) {
+            return '';
+        }
+        return canvasRef.value.toDataURL('image/png', quality);
     }
 
     watch(canvasRef, (canvas) => {
@@ -46,6 +54,7 @@ const useCanvas = () => {
         // setCanvas,
         setImageFromDataUrl,
         applyFilter,
+        getImageData,
     };
 }
 
